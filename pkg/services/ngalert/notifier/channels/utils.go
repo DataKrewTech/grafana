@@ -22,7 +22,7 @@ import (
 )
 
 const (
-	FooterIconURL      = "https://grafana.com/assets/img/axon-logo.png"
+	FooterIconURL      = "https://grafana.com/assets/img/dp-logo.png"
 	ColorAlertFiring   = "#D63232"
 	ColorAlertResolved = "#36a64f"
 )

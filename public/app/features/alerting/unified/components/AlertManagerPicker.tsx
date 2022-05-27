@@ -19,7 +19,7 @@ export const AlertManagerPicker: FC<Props> = ({ onChange, current, disabled = fa
       {
         label: 'Grafana',
         value: GRAFANA_RULES_SOURCE_NAME,
-        imgUrl: 'public/img/axon-logo.png',
+        imgUrl: 'public/img/dp-logo.png',
         meta: {},
       },
       ...getAllDataSources()

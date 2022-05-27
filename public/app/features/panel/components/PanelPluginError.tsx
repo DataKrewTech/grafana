@@ -74,7 +74,7 @@ export function getPanelPluginNotFound(id: string, silent?: boolean): PanelPlugi
       links: [],
       logos: {
         large: '',
-        small: 'public/img/axon-logo.png',
+        small: 'public/img/dp-logo.png',
       },
       screenshots: [],
       updated: '',
