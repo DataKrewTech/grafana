@@ -9,7 +9,7 @@ export interface BrandComponentProps {
 }
 
 const LoginLogo: FC<BrandComponentProps> = ({ className }) => {
-  return <img className={className} src="public/img/axon-logo.png" alt="Axon" />;
+  return <img className={className} src="public/img/dp-logo.png" alt="DP Pulse" />;
 };
 
 const LoginBackground: FC<BrandComponentProps> = ({ className, children }) => {
@@ -23,7 +23,7 @@ const LoginBackground: FC<BrandComponentProps> = ({ className, children }) => {
       right: 0;
       bottom: 0;
       top: 0;
-      background: url(public/img/g8_login_${theme.isDark ? 'dark' : 'light'}.svg);
+      background: url(public/img/dp-bg.svg);
       background-position: top center;
       background-size: auto;
       background-repeat: no-repeat;
@@ -42,13 +42,13 @@ const LoginBackground: FC<BrandComponentProps> = ({ className, children }) => {
 };
 
 const MenuLogo: FC<BrandComponentProps> = ({ className }) => {
-  return <img className={className} src="public/img/axon-logo.png" alt="Axon" />;
+  return <img className={className} src="public/img/dp-logo.png" alt="DP Pulse" />;
 };
 
 const LoginBoxBackground = () => {
-  const theme = useTheme2();
+  // const theme = useTheme2();
   return css`
-    background: ${colorManipulator.alpha(theme.colors.background.primary, 0.7)};
+    background: ${colorManipulator.alpha('#ffffff', 1)};
     background-size: cover;
   `;
 };
@@ -58,9 +58,9 @@ export class Branding {
   static LoginBackground = LoginBackground;
   static MenuLogo = MenuLogo;
   static LoginBoxBackground = LoginBoxBackground;
-  static AppTitle = 'Axon';
-  static LoginTitle = 'Welcome to Axon';
+  static AppTitle = 'DP Pulse';
+  static LoginTitle = 'Welcome to DP Pulse';
   static GetLoginSubTitle = (): null | string => {
-    return null;
+    return 'Welcome Back! Please enter your details.';
   };
 }
