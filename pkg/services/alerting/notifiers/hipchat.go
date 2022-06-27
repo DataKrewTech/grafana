@@ -150,7 +150,7 @@ func (hc *HipChatNotifier) Notify(evalContext *alerting.EvalContext) error {
 		"title":       evalContext.GetNotificationTitle(),
 		"description": message,
 		"icon": map[string]interface{}{
-			"url": "https://grafana.com/assets/img/axon-logo.png",
+			"url": "https://grafana.com/assets/img/datakrew.png",
 		},
 		"date":       evalContext.EndTime.Unix(),
 		"attributes": attributes,

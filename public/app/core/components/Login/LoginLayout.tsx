@@ -105,7 +105,7 @@ export const getLoginStyles = (theme: GrafanaTheme2) => {
     `,
     subTitle: css`
       font-size: ${theme.typography.size.md};
-      color: ${theme.colors.text.secondary};
+      color: black;
     `,
     loginContent: css`
       max-width: 478px;
@@ -132,6 +132,7 @@ export const getLoginStyles = (theme: GrafanaTheme2) => {
       overflow-y: hidden;
       align-items: center;
       justify-content: center;
+      color: black;
     `,
     loginInnerBox: css`
       padding: ${theme.spacing(2)};
