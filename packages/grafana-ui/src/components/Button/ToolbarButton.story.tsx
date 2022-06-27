@@ -22,7 +22,7 @@ export const List = () => {
         <ToolbarButtonRow>
           <ToolbarButton>Just text</ToolbarButton>
           <ToolbarButton icon="sync" tooltip="Sync" />
-          <ToolbarButton imgSrc="./axon-logo.png">With imgSrc</ToolbarButton>
+          <ToolbarButton imgSrc="./datakrew.png">With imgSrc</ToolbarButton>
           <ToolbarButton icon="cloud" isOpen={true}>
             isOpen
           </ToolbarButton>

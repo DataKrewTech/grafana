@@ -13,7 +13,7 @@ const GrafanaManagedRuleType: FC<SharedProps> = ({ selected = false, disabled, o
           Transform data with expressions.
         </span>
       }
-      image="/public/img/axon-logo.png"
+      image="/public/img/datakrew.png"
       selected={selected}
       disabled={disabled}
       value={RuleFormType.grafana}
