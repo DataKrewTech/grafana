@@ -667,7 +667,7 @@ func (hs *HTTPServer) setIndexViewData(c *models.ReqContext) (*dtos.IndexViewDat
 		NewGrafanaVersionExists: hs.grafanaUpdateChecker.UpdateAvailable(),
 		AppName:                 setting.ApplicationName,
 		AppNameBodyClass:        "app-grafana",
-		FavIcon:                 "public/img/datakrew.png",
+		FavIcon:                 "public/img/datakrew-icon.png",
 		AppleTouchIcon:          "public/img/apple-touch-icon.png",
 		AppTitle:                "Grafana",
 		NavTree:                 navTree,

@@ -42,7 +42,7 @@ const LoginBackground: FC<BrandComponentProps> = ({ className, children }) => {
 };
 
 const MenuLogo: FC<BrandComponentProps> = ({ className }) => {
-  return <img className={className} src="public/img/datakrew.png" alt="Datakrew" />;
+  return <img className={className} src="public/img/datakrew-icon.png" alt="Datakrew" />;
 };
 
 const LoginBoxBackground = () => {
