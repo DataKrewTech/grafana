@@ -31,7 +31,7 @@ func TestDiscordNotifier(t *testing.T) {
 		t.Run("settings should trigger incident", func(t *testing.T) {
 			json := `
 				{
-					"avatar_url": "https://grafana.com/img/fav32.png",
+					"avatar_url": "https://grafana.com/img/axon-logo.png",
 					"content": "@everyone Please check this notification",
 					"url": "https://web.hook/"
 				}`
@@ -49,7 +49,7 @@ func TestDiscordNotifier(t *testing.T) {
 			require.Nil(t, err)
 			require.Equal(t, "discord_testing", discordNotifier.Name)
 			require.Equal(t, "discord", discordNotifier.Type)
-			require.Equal(t, "https://grafana.com/img/fav32.png", discordNotifier.AvatarURL)
+			require.Equal(t, "https://grafana.com/img/axon-logo.png", discordNotifier.AvatarURL)
 			require.Equal(t, "@everyone Please check this notification", discordNotifier.Content)
 			require.Equal(t, "https://web.hook/", discordNotifier.WebhookURL)
 		})
