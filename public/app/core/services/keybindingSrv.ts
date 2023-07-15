@@ -138,7 +138,7 @@ export class KeybindingSrv {
 
     const { kioskMode } = this.chromeService.state.getValue();
     if (kioskMode) {
-      this.chromeService.exitKioskMode();
+      // this.chromeService.exitKioskMode();
     }
 
     if (search.search) {
