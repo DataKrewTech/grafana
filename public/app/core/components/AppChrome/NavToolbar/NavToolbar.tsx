@@ -4,9 +4,10 @@ import React from 'react';
 import { GrafanaTheme2, NavModelItem } from '@grafana/data';
 import { Components } from '@grafana/e2e-selectors';
 import { Icon, IconButton, ToolbarButton, useStyles2 } from '@grafana/ui';
+import { useGrafana } from 'app/core/context/GrafanaContext';
 import { t } from 'app/core/internationalization';
 import { HOME_NAV_ID } from 'app/core/reducers/navModel';
-import { useSelector } from 'app/types';
+import { KioskMode, useSelector } from 'app/types';
 
 import { Breadcrumbs } from '../../Breadcrumbs/Breadcrumbs';
 import { buildBreadcrumbs } from '../../Breadcrumbs/utils';
@@ -37,22 +38,30 @@ export function NavToolbar({
   const styles = useStyles2(getStyles);
   const breadcrumbs = buildBreadcrumbs(sectionNav, pageNav, homeNav);
 
+  const { chrome } = useGrafana();
+  const state = chrome.useState();
+
+  const isKioskModeTV = state.kioskMode === KioskMode.TV;
+
   return (
     <div data-testid={Components.NavToolbar.container} className={styles.pageToolbar}>
-      <div className={styles.menuButton}>
-        <IconButton
-          name="bars"
-          tooltip={t('navigation.toolbar.toggle-menu', 'Toggle menu')}
-          tooltipPlacement="bottom"
-          size="xl"
-          onClick={onToggleMegaMenu}
-        />
-      </div>
-      <Breadcrumbs breadcrumbs={breadcrumbs} className={styles.breadcrumbsWrapper} />
+      {!isKioskModeTV && (
+        <div className={styles.menuButton}>
+          <IconButton
+            name="bars"
+            tooltip={t('navigation.toolbar.toggle-menu', 'Toggle menu')}
+            tooltipPlacement="bottom"
+            size="xl"
+            onClick={onToggleMegaMenu}
+          />
+        </div>
+      )}
+      {!isKioskModeTV && <Breadcrumbs breadcrumbs={breadcrumbs} className={styles.breadcrumbsWrapper} />}
+      {isKioskModeTV && pageNav?.text && <span>{pageNav?.text || ''}</span>}
       <div className={styles.actions}>
         {actions}
-        {actions && <NavToolbarSeparator />}
-        {searchBarHidden && (
+        {actions && !isKioskModeTV && <NavToolbarSeparator />}
+        {searchBarHidden && !isKioskModeTV && (
           <ToolbarButton
             onClick={onToggleKioskMode}
             narrow
@@ -60,13 +69,15 @@ export function NavToolbar({
             icon="monitor"
           />
         )}
-        <ToolbarButton
-          onClick={onToggleSearchBar}
-          narrow
-          title={t('navigation.toolbar.toggle-search-bar', 'Toggle top search bar')}
-        >
-          <Icon name={searchBarHidden ? 'angle-down' : 'angle-up'} size="xl" />
-        </ToolbarButton>
+        {!isKioskModeTV && (
+          <ToolbarButton
+            onClick={onToggleSearchBar}
+            narrow
+            title={t('navigation.toolbar.toggle-search-bar', 'Toggle top search bar')}
+          >
+            <Icon name={searchBarHidden ? 'angle-down' : 'angle-up'} size="xl" />
+          </ToolbarButton>
+        )}
       </div>
     </div>
   );
